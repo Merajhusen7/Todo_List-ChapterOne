@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextInput, Button, useTheme } from 'react-native-paper';
 
+/**
+ * TaskInput Component
+ * Modal input for adding new tasks
+ * @param {Object} props - Component props
+ * @param {Function} props.onAddTask - Callback function to add a new task
+ * @param {Function} props.onCancel - Callback function to cancel task addition
+ */
 export default function TaskInput({ onAddTask, onCancel }) {
   const [text, setText] = useState('');
   const theme = useTheme();
 
+  /**
+   * Handles task submission
+   * Validates input and calls onAddTask callback
+   */
   const handleSubmit = () => {
     onAddTask(text);
     setText('');
@@ -20,6 +31,7 @@ export default function TaskInput({ onAddTask, onCancel }) {
         onChangeText={setText}
         style={styles.input}
         autoFocus
+        placeholder="Enter task description"
       />
       <View style={styles.buttonContainer}>
         <Button
@@ -42,6 +54,7 @@ export default function TaskInput({ onAddTask, onCancel }) {
   );
 }
 
+// Styles
 const styles = StyleSheet.create({
   container: {
     padding: 16,

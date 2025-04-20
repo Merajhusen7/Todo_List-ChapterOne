@@ -2,6 +2,14 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { List, IconButton, useTheme } from 'react-native-paper';
 
+/**
+ * TaskItem Component
+ * Displays a single task with options to toggle completion and delete
+ * @param {Object} props - Component props
+ * @param {Object} props.task - The task object containing id, text, and completed status
+ * @param {Function} props.onToggle - Callback function to toggle task completion
+ * @param {Function} props.onDelete - Callback function to delete the task
+ */
 export default function TaskItem({ task, onToggle, onDelete }) {
   const theme = useTheme();
 
@@ -32,6 +40,7 @@ export default function TaskItem({ task, onToggle, onDelete }) {
   );
 }
 
+// Styles
 const styles = StyleSheet.create({
   container: {
     marginVertical: 4,
